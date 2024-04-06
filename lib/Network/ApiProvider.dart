@@ -44,7 +44,7 @@ class ApiProvider {
 
   /***  Native Item API ***/
   Future<NativeItem> fetchMenuDetails() async {
-    Response response = await _dio.get('${_baseUrl}66118851ad19ca34f855fb72');
+    Response response = await _dio.get('${_baseUrl}66119488acd3cb34a8347518');
     Map<String, dynamic> jsonResponse =
         response.data['record']['record']['record']['record'];
 

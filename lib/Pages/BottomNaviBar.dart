@@ -1,6 +1,4 @@
 import 'dart:convert';
-import 'dart:typed_data';
-
 import 'package:flutter/material.dart';
 import 'package:kepler_web/model/native_item.dart';
 import '../../Utils/constants.dart';
@@ -19,28 +17,9 @@ class BottomNaviBar extends StatefulWidget {
 class _BottomNaviBarState extends State<BottomNaviBar> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  late final NativeItem nativeItem;
   bool canPop = false;
   DateTime? currentBackPressTime;
   int _selectedIndex = 0;
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    nativeItem = ModalRoute.of(context)?.settings.arguments as NativeItem;
-  }
-
-/*  @override
-  void initState() {
-    super.initState();
-    _widgetOptions = <Widget>[
-      HomePage(webUrl: nativeItem.items?[0].uRL),
-      BuyPage(navigateToHomePageCallback: getNavigateToHomePageCallback(), webUrl: nativeItem.items?[1].uRL),
-      RentPage(navigateToHomePageCallback: getNavigateToHomePageCallback(), webUrl: nativeItem.items?[2].uRL),
-      TripleNinePage(
-          navigateToHomePageCallback: getNavigateToHomePageCallback(), webUrl: nativeItem.items?[3].uRL)
-    ];
-  }*/
 
   void _onItemTapped(int index) {
     if (index == 4) {
@@ -64,6 +43,9 @@ class _BottomNaviBarState extends State<BottomNaviBar> {
 
   @override
   Widget build(BuildContext context) {
+    final NativeItem nativeItem =
+        ModalRoute.of(context)?.settings.arguments as NativeItem;
+
     List<Widget> widgetOptions = <Widget>[
       HomePage(webUrl: nativeItem.items?[0].uRL),
       BuyPage(
@@ -221,7 +203,7 @@ class _BottomNaviBarState extends State<BottomNaviBar> {
             selectedItemColor: Colors.red,
             unselectedLabelStyle: TextStyle(color: Colors.black87),
             currentIndex: _selectedIndex,
-            onTap: _onItemTapped,
+            //  onTap: _onItemTapped,
           ),
         ),
       ),
