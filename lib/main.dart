@@ -17,6 +17,8 @@ void main() async {
   Hive.registerAdapter(ItemsAdapter());
 
   runApp(MaterialApp(
+    themeMode: ThemeMode.light, // Always use light theme
+    theme: ThemeData.light(), // Define light theme
     home: RepositoryProvider(
       create: (context) => ApiProvider(),
       child: SplashScreen(),

@@ -245,22 +245,25 @@ class _CustomBottomNavigationBarItemState
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () => widget.onTap(),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          ImageIcon(
-            _imageProvider,
-            size: 24,
-            color: widget.isSelected ? Colors.red : Colors.black87,
-          ),
-          Text(
-            widget.title,
-            style: TextStyle(
+      child: SizedBox(
+        height: 40,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ImageIcon(
+              _imageProvider,
+              size: 20,
               color: widget.isSelected ? Colors.red : Colors.black87,
             ),
-          ),
-        ],
+            Text(
+              widget.title,
+              style: TextStyle(
+                color: widget.isSelected ? Colors.red : Colors.black87,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
